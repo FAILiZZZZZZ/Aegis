@@ -14,17 +14,18 @@
 # Original Loot Filter for Path of Exile 2
 #
 # Author      : François + ChatGPT
-# Version     : 0.0.2-dev
+# Version     : 0.2.0
 # Game        : Path of Exile 2
 #
 # Philosophy
 #
-#  • Trade Strict
+#  • Softcore Trade
 #  • Endgame only
-#  • Economy first
+#  • TradeStrict+
+#  • Economy first, utility-stable rules
 #  • Minimal visual noise
 #  • Energy Shield focused
-#  • Meta driven
+#  • Casters / Spirit Walker priority
 #
 #######################################################################
 
@@ -33,45 +34,102 @@
 # 01 - GLOBAL STYLES
 #######################################################################
 
-# ---------------------------------------------------------------------
-# S+  (Jackpot)
-# ---------------------------------------------------------------------
+# The filter language has no reusable style definitions.
+# S+ = red/violet, S = green, A = yellow, B = blue, C = white.
+# Rules intentionally do not use Continue: a matching rule is terminal.
 
+
+#######################################################################
+# 02 - CURRENCY
+#######################################################################
+
+# Tier 1 basic crafting currency is below this profile's pickup threshold.
+Hide
+    BaseType "Orb of Transmutation" "Orb of Augmentation" "Regal Orb"
+
+# S+ - Exceptional trade currency.
 Show
-    Class "Dummy"
+    BaseType "Mirror of Kalandra" "Hinekora's Lock"
     SetTextColor 255 255 255
     SetBorderColor 255 0 255
-    SetBackgroundColor 60 0 60 255
+    SetBackgroundColor 100 0 50 255
     SetFontSize 45
+    PlayAlertSound 6 300
 
-# ---------------------------------------------------------------------
-# S
-# ---------------------------------------------------------------------
-
+# S - High-value currency with a strong alert.
 Show
-    Class "Dummy"
+    BaseType "Divine Orb" "Fracturing Orb" "Perfect Jeweller's Orb" "Perfect Chaos Orb" "Perfect Exalted Orb"
     SetTextColor 80 255 80
     SetBorderColor 255 255 255
     SetBackgroundColor 20 20 20 255
     SetFontSize 42
+    PlayAlertSound 5 250
 
-# ---------------------------------------------------------------------
-# A
-# ---------------------------------------------------------------------
-
+# A - Valuable endgame crafting currency.
 Show
-    Class "Dummy"
+    BaseType "Greater Chaos Orb" "Greater Exalted Orb" "Greater Jeweller's Orb" "Orb of Annulment" "Perfect Orb of Transmutation" "Perfect Orb of Augmentation" "Perfect Regal Orb"
     SetTextColor 255 220 0
     SetBorderColor 220 220 220
     SetBackgroundColor 20 20 20 255
     SetFontSize 40
 
-# ---------------------------------------------------------------------
-# B
-# ---------------------------------------------------------------------
-
+# B - Tier 2 basic crafting currency, explicitly retained.
 Show
-    Class "Dummy"
+    BaseType "Greater Orb of Transmutation" "Greater Orb of Augmentation" "Greater Regal Orb"
+    SetTextColor 120 180 255
+    SetBorderColor 180 180 180
+    SetBackgroundColor 15 15 15 255
+    SetFontSize 38
+
+# C - Currency, including essences, remains visible when its value is uncertain.
+Show
+    Class "Stackable Currency"
+    SetTextColor 255 255 255
+    SetBorderColor 150 150 150
+    SetBackgroundColor 0 0 0 200
+    SetFontSize 36
+
+
+#######################################################################
+# 03 - GEMS
+#######################################################################
+
+# Level 20 uncut Skill and Spirit Gems are premium endgame drops.
+Show
+    Class "Uncut Skill Gems" "Uncut Spirit Gems"
+    GemLevel >= 20
+    SetTextColor 80 255 80
+    SetBorderColor 255 255 255
+    SetBackgroundColor 20 20 20 255
+    SetFontSize 42
+    PlayAlertSound 5 250
+
+# Level 17+ uncut Skill and Spirit Gems meet the requested endgame floor.
+Show
+    Class "Uncut Skill Gems" "Uncut Spirit Gems"
+    GemLevel >= 17
+    SetTextColor 255 220 0
+    SetBorderColor 220 220 220
+    SetBackgroundColor 20 20 20 255
+    SetFontSize 40
+
+
+#######################################################################
+# 04 - RUNES
+#######################################################################
+
+# S - Premium runes are shown prominently.
+Show
+    BaseType "Masterwork Rune" "Perfect Adept Rune" "Perfect Body Rune" "Perfect Charging Rune" "Perfect Desert Rune" "Perfect Glacial Rune" "Perfect Inspiration Rune" "Perfect Iron Rune" "Perfect Mind Rune" "Perfect Rebirth Rune" "Perfect Resolve Rune" "Perfect Robust Rune" "Perfect Stone Rune" "Perfect Storm Rune" "Perfect Vision Rune" "Perfect Ward Rune"
+    SetTextColor 80 255 80
+    SetBorderColor 255 255 255
+    SetBackgroundColor 20 20 20 255
+    SetFontSize 42
+    PlayAlertSound 5 250
+
+# B - Higher-tier runes and other socketables remain visible for trade safety.
+Show
+    Class "Augment"
     SetTextColor 120 180 255
     SetBorderColor 180 180 180
     SetBackgroundColor 15 15 15 255
@@ -79,77 +137,210 @@ Show
 
 
 #######################################################################
-# 02 - CURRENCY
-#######################################################################
-
-
-
-#######################################################################
-# 03 - GEMS
-#######################################################################
-
-
-
-#######################################################################
-# 04 - RUNES
-#######################################################################
-
-
-
-#######################################################################
 # 05 - WAYSTONES
 #######################################################################
 
+# S+ - Tier 16 Waystones are the highest endgame progression drops.
+Show
+    Class "Waystones"
+    WaystoneTier >= 16
+    SetTextColor 255 255 255
+    SetBorderColor 255 0 255
+    SetBackgroundColor 100 0 50 255
+    SetFontSize 45
+    PlayAlertSound 6 300
+
+# S - Tier 15 Waystones are retained for endgame progression and trade.
+Show
+    Class "Waystones"
+    WaystoneTier >= 15
+    SetTextColor 80 255 80
+    SetBorderColor 255 255 255
+    SetBackgroundColor 20 20 20 255
+    SetFontSize 42
+    PlayAlertSound 5 250
 
 
 #######################################################################
 # 06 - HELMETS
 #######################################################################
 
+# Any rare endgame equipment at item level 82+ is retained for trade.
+Show
+    Class "Amulets" "Belts" "Body Armours" "Boots" "Bows" "Bucklers" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Rings" "Sceptres" "Shields" "Spears" "Staves" "Talismans" "Two Hand Maces" "Wands"
+    Rarity Rare
+    ItemLevel >= 82
+    SetTextColor 255 220 0
+    SetBorderColor 220 220 220
+    SetBackgroundColor 20 20 20 255
+    SetFontSize 40
+
+# Rare Energy Shield helmets are retained for caster and Spirit Walker builds.
+Show
+    Class "Helmets"
+    Rarity Rare
+    BaseEnergyShield > 0
+    SetTextColor 120 180 255
+    SetBorderColor 180 180 180
+    SetBackgroundColor 15 15 15 255
+    SetFontSize 38
 
 
 #######################################################################
 # 07 - BODY ARMOURS
 #######################################################################
 
+# Rare Energy Shield body armours, including hybrid defences, are retained.
+Show
+    Class "Body Armours"
+    Rarity Rare
+    BaseEnergyShield > 0
+    SetTextColor 120 180 255
+    SetBorderColor 180 180 180
+    SetBackgroundColor 15 15 15 255
+    SetFontSize 38
 
 
 #######################################################################
 # 08 - GLOVES
 #######################################################################
 
+# Rare Energy Shield gloves, including hybrid defences, are retained.
+Show
+    Class "Gloves"
+    Rarity Rare
+    BaseEnergyShield > 0
+    SetTextColor 120 180 255
+    SetBorderColor 180 180 180
+    SetBackgroundColor 15 15 15 255
+    SetFontSize 38
 
 
 #######################################################################
 # 09 - BOOTS
 #######################################################################
 
+# Rare Energy Shield boots, including hybrid defences, are retained.
+Show
+    Class "Boots"
+    Rarity Rare
+    BaseEnergyShield > 0
+    SetTextColor 120 180 255
+    SetBorderColor 180 180 180
+    SetBackgroundColor 15 15 15 255
+    SetFontSize 38
 
 
 #######################################################################
 # 10 - SHIELDS
 #######################################################################
 
+# Rare Energy Shield shields and bucklers are retained.
+Show
+    Class "Shields" "Bucklers"
+    Rarity Rare
+    BaseEnergyShield > 0
+    SetTextColor 120 180 255
+    SetBorderColor 180 180 180
+    SetBackgroundColor 15 15 15 255
+    SetFontSize 38
+
+# Rare foci are caster equipment and are kept when they provide Energy Shield.
+Show
+    Class "Foci"
+    Rarity Rare
+    BaseEnergyShield > 0
+    SetTextColor 120 180 255
+    SetBorderColor 180 180 180
+    SetBackgroundColor 15 15 15 255
+    SetFontSize 38
 
 
 #######################################################################
 # 11 - WEAPONS
 #######################################################################
 
+# Rare caster weapons at high item level are retained for endgame crafting.
+Show
+    Class "Wands" "Sceptres" "Staves"
+    Rarity Rare
+    ItemLevel >= 82
+    SetTextColor 255 220 0
+    SetBorderColor 220 220 220
+    SetBackgroundColor 20 20 20 255
+    SetFontSize 40
 
 
 #######################################################################
 # 12 - JEWELLERY
 #######################################################################
 
+# Unique accessories are always visible, regardless of market tier.
+Show
+    Class "Amulets" "Belts" "Rings"
+    Rarity Unique
+    SetTextColor 80 255 80
+    SetBorderColor 255 255 255
+    SetBackgroundColor 20 20 20 255
+    SetFontSize 42
+    PlayAlertSound 5 250
+
+# Rare jewellery is retained only when its item level meets the endgame floor.
+Show
+    Class "Amulets" "Belts" "Rings"
+    Rarity Rare
+    ItemLevel >= 82
+    SetTextColor 255 220 0
+    SetBorderColor 220 220 220
+    SetBackgroundColor 20 20 20 255
+    SetFontSize 40
+
+# CHASE UNIQUES: add verified BaseType names here as the manual list evolves.
+# Safety fallback: non-accessory uniques remain visible until that list is curated.
+Show
+    Rarity Unique
+    SetTextColor 255 255 255
+    SetBorderColor 150 150 150
+    SetBackgroundColor 0 0 0 200
+    SetFontSize 36
 
 
 #######################################################################
 # 13 - LEAGUE CONTENT
 #######################################################################
 
+# Trial access items are explicitly excluded for this profile.
+Hide
+    BaseType "Djinn Barya" "Inscribed Ultimatum"
+
+# Tablets and map fragments are always retained.
+Show
+    Class "Tablet" "Map Fragments"
+    SetTextColor 120 180 255
+    SetBorderColor 180 180 180
+    SetBackgroundColor 15 15 15 255
+    SetFontSize 38
+
+# Expedition Logbooks are always retained.
+Show
+    Class "Expedition Logbook"
+    SetTextColor 255 220 0
+    SetBorderColor 220 220 220
+    SetBackgroundColor 20 20 20 255
+    SetFontSize 40
+
+# Sekhemas relics are always retained.
+Show
+    BaseType "Amphora Relic" "Coffer Relic" "Incense Relic" "Seal Relic" "Tapestry Relic" "Urn Relic" "Vase Relic"
+    SetTextColor 255 220 0
+    SetBorderColor 220 220 220
+    SetBackgroundColor 20 20 20 255
+    SetFontSize 40
 
 
 #######################################################################
 # 99 - HIDE EVERYTHING ELSE
 #######################################################################
+
+# Strict endgame fallback: hide every item not selected above.
+Hide
