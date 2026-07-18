@@ -1,5 +1,9 @@
 # Aegis
 
+<p align="center">
+  <img src="assets/aegis-logo.png" alt="Aegis logo" width="260">
+</p>
+
 Filtre de loot original pour **Path of Exile 2**, conçu pour le **Softcore Trade endgame**.
 
 > Statut : en développement actif — version actuelle du filtre : **[0.2.4](https://github.com/FAILiZZZZZZ/Aegis/releases/tag/v0.2.4)**.
