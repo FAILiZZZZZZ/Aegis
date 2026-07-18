@@ -2,7 +2,7 @@
 
 Filtre de loot original pour **Path of Exile 2**, conçu pour le **Softcore Trade endgame**.
 
-> Statut : en développement actif — version actuelle du filtre : **[0.2.3](https://github.com/FAILiZZZZZZ/Aegis/releases/tag/v0.2.3)**.
+> Statut : en développement actif — version actuelle du filtre : **[0.2.4](https://github.com/FAILiZZZZZZ/Aegis/releases/tag/v0.2.4)**.
 
 ## Objectif
 
@@ -75,10 +75,10 @@ Les évolutions prévues sont notamment :
 
 Les commits enregistrent les évolutions du projet. Une **release GitHub** est créée pour chaque version testée et prête à être utilisée, afin de pouvoir télécharger facilement une version stable d'Aegis.
 
-La version stable actuelle est [Aegis v0.2.3](https://github.com/FAILiZZZZZZ/Aegis/releases/tag/v0.2.3).
+La version stable actuelle est [Aegis v0.2.4](https://github.com/FAILiZZZZZZ/Aegis/releases/tag/v0.2.4).
 
 ## Crédits
 
-- **François** : création et suivi du projet.
+- **FAILiZZZZZZ** : création et suivi du projet.
 - **★BungeeGum💧** : direction de jeu, priorités économiques et retours de test.
 - **ChatGPT** : assistance technique et maintenance du filtre.
