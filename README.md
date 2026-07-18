@@ -1,7 +1,7 @@
 # Aegis
 
 <p align="center">
-  <img src="assets/aegis-logo.png" alt="Aegis logo" width="260">
+  <img src="assets/aegis-social-preview.jpg" alt="Aegis — Path of Exile 2 Loot Filter" width="800">
 </p>
 
 Filtre de loot original pour **Path of Exile 2**, conçu pour le **Softcore Trade endgame**.
