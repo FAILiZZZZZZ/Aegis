@@ -2,7 +2,7 @@
 
 Filtre de loot original pour **Path of Exile 2**, conçu pour le **Softcore Trade endgame**.
 
-> Statut : en développement actif — version actuelle du filtre : **0.2.0**.
+> Statut : en développement actif — version actuelle du filtre : **[0.2.1](https://github.com/FAILiZZZZZZ/Aegis/releases/tag/v0.2.1)**.
 
 ## Objectif
 
@@ -19,11 +19,11 @@ Ses priorités actuelles sont :
 
 | Catégorie | Comportement |
 | --- | --- |
-| Monnaies | Paliers visuels S+ à C ; Transmutation, Augmentation et Regal de tier 1 masqués. |
+| Monnaies | Paliers visuels S+ à C ; or sous 700 masqué et piles de 2 000+ mises en avant. Les variantes de Transmutation, Augmentation et Regal de tier 1 sont masquées, tandis que les variantes Greater et Perfect restent visibles. Vaal Orb, Exalted Orb et essences sont orange. |
 | Gemmes brutes | Gemmes d'Aptitude et d'Esprit affichées à partir du niveau 17 ; niveau 20 mis en avant. |
 | Runes | Runes premium mises en avant ; autres socketables conservés par sécurité. |
 | Waystones | T15 et T16 affichées avec une priorité élevée. |
-| Équipement rare | Affiché à partir de l'ilvl 82, ainsi que les rares possédant de l'Energy Shield. |
+| Équipement rare | Tous les rares à partir de l'ilvl 81 sont affichés, ainsi que les rares possédant de l'Energy Shield. Les armes de caster rares ilvl 81+ sont également retenues. |
 | Uniques | Bagues, amulettes et ceintures toujours visibles ; les autres uniques restent visibles tant que la liste manuelle de chase uniques est incomplète. |
 | Contenu endgame | Tablettes, fragments, logbooks et reliques affichés. |
 | Essais | Djinn Barya et Inscribed Ultimatum masqués. |
@@ -34,7 +34,7 @@ Ses priorités actuelles sont :
 | Niveau | Couleur | Usage |
 | --- | --- | --- |
 | S+ | Rouge / violet | Objets exceptionnels. |
-| S | Vert | Objets de très haute valeur ou priorité. |
+| S | Orange foncé | Objets de très haute valeur ou priorité. |
 | A | Jaune | Objets endgame importants. |
 | B | Bleu | Objets utiles ou de valeur intermédiaire. |
 | C | Blanc | Objets conservés par prudence. |
@@ -68,4 +68,6 @@ Les évolutions prévues sont notamment :
 
 ## Versions
 
-Les commits enregistrent les évolutions du projet. Une **release GitHub** sera créée pour chaque version testée et prête à être utilisée, afin de pouvoir télécharger facilement une version stable d'Aegis.
+Les commits enregistrent les évolutions du projet. Une **release GitHub** est créée pour chaque version testée et prête à être utilisée, afin de pouvoir télécharger facilement une version stable d'Aegis.
+
+La version stable actuelle est [Aegis v0.2.1](https://github.com/FAILiZZZZZZ/Aegis/releases/tag/v0.2.1).
