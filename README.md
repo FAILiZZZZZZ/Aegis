@@ -2,7 +2,7 @@
 
 Filtre de loot original pour **Path of Exile 2**, conçu pour le **Softcore Trade endgame**.
 
-> Statut : en développement actif — version actuelle du filtre : **[0.2.1](https://github.com/FAILiZZZZZZ/Aegis/releases/tag/v0.2.1)**.
+> Statut : en développement actif — version actuelle du filtre : **[0.2.2](https://github.com/FAILiZZZZZZ/Aegis/releases/tag/v0.2.2)**.
 
 ## Objectif
 
@@ -19,13 +19,16 @@ Ses priorités actuelles sont :
 
 | Catégorie | Comportement |
 | --- | --- |
-| Monnaies | Paliers visuels S+ à C ; or sous 700 masqué et piles de 2 000+ mises en avant. Les variantes de Transmutation, Augmentation et Regal de tier 1 sont masquées, tandis que les variantes Greater et Perfect restent visibles. Vaal Orb, Exalted Orb et essences sont orange. |
+| Monnaies | Paliers visuels S+ à C ; or sous 700 masqué et piles de 2 000+ mises en avant. Alchemy, Chaos, Exalted et Greater Regal reçoivent un style jaune clair avec son léger. Les variantes Greater et Perfect de Transmutation, Augmentation et Regal restent visibles. |
 | Gemmes brutes | Gemmes d'Aptitude et d'Esprit affichées à partir du niveau 17 ; niveau 20 mis en avant. |
 | Runes | Runes premium mises en avant ; autres socketables conservés par sécurité. |
 | Waystones | T15 et T16 affichées avec une priorité élevée. |
 | Équipement rare | Tous les rares à partir de l'ilvl 81 sont affichés, ainsi que les rares possédant de l'Energy Shield. Les armes de caster rares ilvl 81+ sont également retenues. |
+| Affixes T4/T5 | Les objets non identifiés de palier 4 ou 5 sont mis en avant en bleu. |
+| Bases blanches ES | Les bases normales Energy Shield et hybrides ES de niveau de drop 80+ sont conservées. |
 | Uniques | Bagues, amulettes et ceintures toujours visibles ; les autres uniques restent visibles tant que la liste manuelle de chase uniques est incomplète. |
-| Contenu endgame | Tablettes, fragments, logbooks et reliques affichés. |
+| Contenu endgame | Tablettes, fragments, logbooks et reliques affichés ; les tablettes reçoivent un style jaune clair avec son léger. |
+| Abyss | Omen of Abyssal Echoes et Omen of Light reçoivent un style S+ sur fond blanc et un son strident. |
 | Essais | Djinn Barya et Inscribed Ultimatum masqués. |
 | Reste du butin | Masqué par la règle finale du filtre. |
 
@@ -70,4 +73,4 @@ Les évolutions prévues sont notamment :
 
 Les commits enregistrent les évolutions du projet. Une **release GitHub** est créée pour chaque version testée et prête à être utilisée, afin de pouvoir télécharger facilement une version stable d'Aegis.
 
-La version stable actuelle est [Aegis v0.2.1](https://github.com/FAILiZZZZZZ/Aegis/releases/tag/v0.2.1).
+La version stable actuelle est [Aegis v0.2.2](https://github.com/FAILiZZZZZZ/Aegis/releases/tag/v0.2.2).
