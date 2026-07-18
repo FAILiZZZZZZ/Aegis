@@ -14,7 +14,7 @@
 # Original Loot Filter for Path of Exile 2
 #
 # Author      : François + ChatGPT
-# Version     : 0.2.0
+# Version     : 0.2.1
 # Game        : Path of Exile 2
 #
 # Philosophy
@@ -35,7 +35,8 @@
 #######################################################################
 
 # The filter language has no reusable style definitions.
-# S+ = red/violet, S = green, A = yellow, B = blue, C = white.
+# Currency tiers: S+ = red/violet, S = dark orange, A = yellow, B = blue, C = white.
+# Other categories may use their own visual priority styles.
 # Rules intentionally do not use Continue: a matching rule is terminal.
 
 
@@ -43,27 +44,66 @@
 # 02 - CURRENCY
 #######################################################################
 
+# Gold: hide small stacks, retain medium stacks, and highlight large stacks.
+Show
+    BaseType == "Gold"
+    StackSize >= 2000
+    SetTextColor 255 220 0
+    SetBorderColor 255 180 0
+    SetBackgroundColor 50 35 0 255
+    SetFontSize 45
+    PlayEffect Yellow
+
+Show
+    BaseType == "Gold"
+    StackSize >= 700
+    SetTextColor 255 255 255
+    SetBorderColor 150 150 150
+    SetBackgroundColor 0 0 0 200
+    SetFontSize 36
+
+Hide
+    BaseType == "Gold"
+    StackSize < 700
+
 # Tier 1 basic crafting currency is below this profile's pickup threshold.
 Hide
-    BaseType "Orb of Transmutation" "Orb of Augmentation" "Regal Orb"
+    BaseType == "Orb of Transmutation" "Orb of Augmentation" "Regal Orb"
 
-# S+ - Exceptional trade currency.
+# Low-value shards are excluded from this endgame profile.
+Hide
+    BaseType == "Regal Shard"
+
+# Scrolls are not retained in endgame maps.
+Hide
+    BaseType == "Scroll of Wisdom"
+
+# S+ - Exceptional trade currency: red/violet, permanent beam and sharp alert.
 Show
     BaseType "Mirror of Kalandra" "Hinekora's Lock"
-    SetTextColor 255 255 255
+    SetTextColor 255 60 60
     SetBorderColor 255 0 255
-    SetBackgroundColor 100 0 50 255
+    SetBackgroundColor 90 0 45 255
     SetFontSize 45
-    PlayAlertSound 6 300
+    PlayEffect Red
+    PlayAlertSound 16 300
 
-# S - High-value currency with a strong alert.
+# S - High-value currency: dark orange with a standard alert.
 Show
     BaseType "Divine Orb" "Fracturing Orb" "Perfect Jeweller's Orb" "Perfect Chaos Orb" "Perfect Exalted Orb"
-    SetTextColor 80 255 80
-    SetBorderColor 255 255 255
-    SetBackgroundColor 20 20 20 255
+    SetTextColor 255 140 0
+    SetBorderColor 200 80 0
+    SetBackgroundColor 55 20 0 255
     SetFontSize 42
-    PlayAlertSound 5 250
+    PlayAlertSound 1 150
+
+# Orange - Vaal, Exalted and all Essence currency.
+Show
+    BaseType "Vaal Orb" "Exalted Orb" "Essence"
+    SetTextColor 255 140 0
+    SetBorderColor 200 80 0
+    SetBackgroundColor 55 20 0 255
+    SetFontSize 40
 
 # A - Valuable endgame crafting currency.
 Show
@@ -165,11 +205,11 @@ Show
 # 06 - HELMETS
 #######################################################################
 
-# Any rare endgame equipment at item level 82+ is retained for trade.
+# Any rare endgame equipment at item level 81+ is retained for trade.
 Show
     Class "Amulets" "Belts" "Body Armours" "Boots" "Bows" "Bucklers" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Rings" "Sceptres" "Shields" "Spears" "Staves" "Talismans" "Two Hand Maces" "Wands"
     Rarity Rare
-    ItemLevel >= 82
+    ItemLevel >= 81
     SetTextColor 255 220 0
     SetBorderColor 220 220 220
     SetBackgroundColor 20 20 20 255
@@ -260,11 +300,11 @@ Show
 # 11 - WEAPONS
 #######################################################################
 
-# Rare caster weapons at high item level are retained for endgame crafting.
+# Rare caster weapons at item level 81+ are retained for endgame crafting.
 Show
     Class "Wands" "Sceptres" "Staves"
     Rarity Rare
-    ItemLevel >= 82
+    ItemLevel >= 81
     SetTextColor 255 220 0
     SetBorderColor 220 220 220
     SetBackgroundColor 20 20 20 255
@@ -289,7 +329,7 @@ Show
 Show
     Class "Amulets" "Belts" "Rings"
     Rarity Rare
-    ItemLevel >= 82
+    ItemLevel >= 81
     SetTextColor 255 220 0
     SetBorderColor 220 220 220
     SetBackgroundColor 20 20 20 255
