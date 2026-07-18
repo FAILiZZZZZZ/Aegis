@@ -14,7 +14,7 @@
 # Original Loot Filter for Path of Exile 2
 #
 # Author      : François + ChatGPT
-# Version     : 0.2.1
+# Version     : 0.2.2
 # Game        : Path of Exile 2
 #
 # Philosophy
@@ -77,6 +77,24 @@ Hide
 # Scrolls are not retained in endgame maps.
 Hide
     BaseType == "Scroll of Wisdom"
+
+# Yellow - Core endgame crafting currency with a light alert.
+Show
+    BaseType "Orb of Alchemy" "Chaos Orb" "Exalted Orb" "Greater Regal Orb"
+    SetTextColor 255 235 140
+    SetBorderColor 230 210 80
+    SetBackgroundColor 45 35 0 255
+    SetFontSize 40
+    PlayAlertSound 1 100
+
+# S+ - Abyss omens requested for maximum visibility on a white background.
+Show
+    BaseType "Omen of Abyssal Echoes" "Omen of Light"
+    SetTextColor 255 0 255
+    SetBorderColor 255 0 0
+    SetBackgroundColor 255 255 255 255
+    SetFontSize 45
+    PlayAlertSound 16 300
 
 # S+ - Exceptional trade currency: red/violet, permanent beam and sharp alert.
 Show
@@ -204,6 +222,25 @@ Show
 #######################################################################
 # 06 - HELMETS
 #######################################################################
+
+# B - Unidentified item tiers 4 and 5 are retained across item categories.
+Show
+    UnidentifiedItemTier >= 4
+    SetTextColor 120 180 255
+    SetBorderColor 180 180 255
+    SetBackgroundColor 15 15 45 255
+    SetFontSize 40
+
+# Normal Energy Shield and hybrid bases with an endgame base drop level are retained.
+Show
+    Class "Body Armours" "Boots" "Bucklers" "Foci" "Gloves" "Helmets" "Shields"
+    Rarity Normal
+    DropLevel >= 80
+    BaseEnergyShield > 0
+    SetTextColor 120 180 255
+    SetBorderColor 180 180 180
+    SetBackgroundColor 15 15 15 255
+    SetFontSize 38
 
 # Any rare endgame equipment at item level 81+ is retained for trade.
 Show
@@ -353,15 +390,24 @@ Show
 Hide
     BaseType "Djinn Barya" "Inscribed Ultimatum"
 
-# Tablets and map fragments are always retained.
+# Tablets, including Abyss and Expedition tablets, are always retained with a light alert.
 Show
-    Class "Tablet" "Map Fragments"
+    Class "Tablet"
+    SetTextColor 255 235 140
+    SetBorderColor 230 210 80
+    SetBackgroundColor 45 35 0 255
+    SetFontSize 40
+    PlayAlertSound 1 100
+
+# Map fragments remain visible for endgame progression.
+Show
+    Class "Map Fragments"
     SetTextColor 120 180 255
     SetBorderColor 180 180 180
     SetBackgroundColor 15 15 15 255
     SetFontSize 38
 
-# Expedition Logbooks are always retained.
+# Expedition Logbooks are always retained; Expedition currency is retained by Stackable Currency above.
 Show
     Class "Expedition Logbook"
     SetTextColor 255 220 0
