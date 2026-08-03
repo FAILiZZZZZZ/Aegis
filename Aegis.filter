@@ -14,7 +14,7 @@
 # Original Loot Filter for Path of Exile 2
 #
 # Author      : FAILiZZZZZZ + ChatGPT
-# Version     : 0.2.4
+# Version     : 0.2.5
 # Game        : Path of Exile 2
 #
 # Philosophy
@@ -126,7 +126,7 @@ Show
 
 # S - High-value currency: dark orange with a standard alert.
 Show
-    BaseType "Divine Orb" "Fracturing Orb" "Orb of Annulment" "Perfect Jeweller's Orb" "Perfect Chaos Orb" "Perfect Exalted Orb"
+    BaseType "Divine Orb" "Fracturing Orb" "Orb of Annulment" "Perfect Jeweller's Orb" "Perfect Chaos Orb" "Perfect Exalted Orb" "Perfect Orb of Transmutation" "Perfect Orb of Augmentation"
     SetTextColor 255 140 0
     SetBorderColor 200 80 0
     SetBackgroundColor 55 20 0 255
@@ -143,7 +143,7 @@ Show
 
 # A - Valuable endgame crafting currency.
 Show
-    BaseType "Greater Chaos Orb" "Greater Exalted Orb" "Greater Jeweller's Orb" "Perfect Orb of Transmutation" "Perfect Orb of Augmentation" "Perfect Regal Orb"
+    BaseType "Greater Chaos Orb" "Greater Exalted Orb" "Greater Jeweller's Orb" "Perfect Regal Orb"
     SetTextColor 255 220 0
     SetBorderColor 220 220 220
     SetBackgroundColor 20 20 20 255
@@ -170,15 +170,16 @@ Show
 # 03 - GEMS
 #######################################################################
 
-# Level 20 uncut Skill and Spirit Gems are premium endgame drops.
+# S+ - Level 20 uncut Skill and Spirit Gems are premium endgame drops.
 Show
     Class "Uncut Skill Gems" "Uncut Spirit Gems"
     GemLevel >= 20
-    SetTextColor 80 255 80
-    SetBorderColor 255 255 255
-    SetBackgroundColor 20 20 20 255
-    SetFontSize 42
-    PlayAlertSound 5 250
+    SetTextColor 255 60 60
+    SetBorderColor 255 0 255
+    SetBackgroundColor 90 0 45 255
+    SetFontSize 45
+    PlayEffect Red
+    PlayAlertSound 16 300
 
 # Level 17+ uncut Skill and Spirit Gems meet the requested endgame floor.
 Show
@@ -240,6 +241,15 @@ Show
 #######################################################################
 # 06 - HELMETS
 #######################################################################
+
+# C - Unidentified item tiers 1 to 3 remain visible with a reduced label size.
+Show
+    UnidentifiedItemTier >= 1
+    UnidentifiedItemTier <= 3
+    SetTextColor 255 255 255
+    SetBorderColor 150 150 150
+    SetBackgroundColor 0 0 0 200
+    SetFontSize 36
 
 # B - Unidentified item tiers 4 and 5 are retained across item categories.
 Show
@@ -389,7 +399,7 @@ Show
     SetBackgroundColor 90 0 45 255
     SetFontSize 45
     PlayEffect Red
-    PlayAlertSound 16 300
+    PlayAlertSound 6 300
 
 # S - Rare unique bases receive a dark-orange style and standard alert.
 # Diamond is handled above at S+ because it also contains very rare unique bases.
@@ -410,6 +420,14 @@ Show
     SetBorderColor 255 110 0
     SetBackgroundColor 55 20 0 255
     SetFontSize 42
+
+# Jewels are always retained for trade and build flexibility.
+Show
+    Class "Jewels"
+    SetTextColor 255 255 255
+    SetBorderColor 150 150 150
+    SetBackgroundColor 0 0 0 200
+    SetFontSize 36
 
 # Rare jewellery is retained only when its item level meets the endgame floor.
 Show
@@ -464,13 +482,15 @@ Show
     SetBackgroundColor 15 15 15 255
     SetFontSize 38
 
-# Expedition Logbooks are always retained; Expedition currency is retained by Stackable Currency above.
+# S+ - Expedition Logbooks are premium trade drops; Expedition currency is retained by Stackable Currency above.
 Show
     Class "Expedition Logbook"
-    SetTextColor 255 220 0
-    SetBorderColor 220 220 220
-    SetBackgroundColor 20 20 20 255
-    SetFontSize 40
+    SetTextColor 255 60 60
+    SetBorderColor 255 0 255
+    SetBackgroundColor 90 0 45 255
+    SetFontSize 45
+    PlayEffect Red
+    PlayAlertSound 16 300
 
 # Sekhemas relics are always retained.
 Show
